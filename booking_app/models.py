@@ -14,11 +14,11 @@ class Room(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     capacity = models.IntegerField(default=2)
-    image = models.ImageField(upload_to="rooms_image" , null=True , blank=True)
+    image = models.ImageField(upload_to="media/rooms_image" , null=True , blank=True)
     room_type = models.CharField(max_length=80, choices=TYPE_CHOICES, default="Standart")
 
     def __str__(self):
-        return (self.title, self.price, self.room_type)
+        return f"{self.title}, {self.price}, {self.room_type}"
     
 
     class Meta:
