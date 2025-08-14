@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
-{% block content %}
 
-{% for room in rooms %}
-<div class="card" style="width: 18rem;">
-  <img src="{{room.image}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">кімната: {{room.title}}</h5>
-    <p class="card-text">{{room.price}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+{% block content %}
+  <header>
+    <h1 class="text-center">Кімнати</h1>
+  </header>
+
+<div class="wrapper">
+  {% for room in rooms %}
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{room.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">кімната: {{room.title}}</h5>
+      <p class="card-text">{{room.description}}</p>
+      <p class="card-text">Ціна: {{room.price}}</p>
+      <a href="{% url 'room_info' room.id %}" class="btn btn-primary stretched-link">Go somewhere</a>
+    </div>
   </div>
-</div>
-    
+      
 {% endfor %}
+</div>
 
 {% endblock %}
